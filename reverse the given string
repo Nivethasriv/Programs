@@ -1,0 +1,9 @@
+user = input("enter the string: ")
+words = user.split()
+
+# Reverse the letters of each individual word inside a list
+reversed_words = [word[::-1] for word in words]
+
+# Join them back together
+result = " ".join(reversed_words)
+print("reversed string:", result)
