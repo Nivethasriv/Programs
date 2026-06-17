@@ -1,0 +1,7 @@
+def get_string_length(s):
+    if s == "":
+        return 0
+    else:
+        return 1 + get_string_length(s[1:])
+user_input=input("ener the string:")
+print(get_string_length(user_input))  
