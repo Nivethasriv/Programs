@@ -1,0 +1,5 @@
+a=2
+b=10
+exor=(a ^ b)
+hamming_distance = bin(exor).count('1')
+print("the hamming distance = ",hamming_distance)
