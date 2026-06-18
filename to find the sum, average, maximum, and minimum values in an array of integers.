@@ -1,0 +1,66 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of elements: ");
+        int size = scanner.nextInt();
+        if (size <= 0) {
+            System.out.println("Array size must be greater than 0.");
+            scanner.close();
+            return;
+        }
+        
+        int[] numbers = new int[size];
+        
+        System.out.println("Enter " + size + " integers:");
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.print("Element " + i + ": ");
+            numbers[i] = scanner.nextInt();
+        }
+        scanner.close();
+        int totalSum = calculateSum(numbers);
+        double finalAvg = calculateAverage(numbers);
+        int minValue = findMin(numbers);
+        int maxValue = findMax(numbers);
+        System.out.println("\n--- Array Statistics ---");
+        System.out.println("Your Array:   " + Arrays.toString(numbers));
+        System.out.println("Total Sum:    " + totalSum);
+        System.out.println("Average:      " + finalAvg);
+        System.out.println("Minimum:      " + minValue);
+        System.out.println("Maximum:      " + maxValue);
+    }
+
+    public static int calculateSum(int[] arr) {
+        int sum = 0;
+        for (int num : arr) {
+            sum += num;
+        }
+        return sum;
+    }
+    public static double calculateAverage(int[] arr) {
+        int sum = calculateSum(arr);
+        return (double) sum / arr.length;
+    }
+    public static int findMin(int[] arr) {
+        int min = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+    public static int findMax(int[] arr) {
+        int max = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+}
